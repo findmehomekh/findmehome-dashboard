@@ -1,0 +1,18 @@
+<div class="flex flex-col min-w-max">
+    <div class="flex flex-row space-x-5 mb-5">
+        <div class="py-2 px-5 justify-center border rounded-lg flex flex-row space-x-3 items-center hover:bg-blue-600 hover:text-white hover: cursor-pointer" routerLink="landlord-list" routerLinkActive="active-sub-menu">
+            <i class="fa-solid fa-eye"></i>
+            <p>Show all landlords</p>
+        </div>
+        <div
+            class="py-2 px-5 justify-center border rounded-lg flex flex-row space-x-3 items-center hover:bg-blue-600 hover:text-white hover: cursor-pointer" routerLink="landlord-form" routerLinkActive="active-sub-menu">
+            <i class="fa-solid fa-circle-plus"></i>
+            <p>Add landlords</p>
+        </div>
+    </div>
+   <div class="flex flex-row space-x-3">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+   </div>
+</div>

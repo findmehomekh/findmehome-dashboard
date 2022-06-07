@@ -1,0 +1,335 @@
+<div>
+    <fieldset class="border border-blue-900 rounded-md p-8 min-w-max w-1/2">
+        <legend class="border rounded-md text-white bg-blue-900 py-2 px-5 flex flex-row space-x-3 items-center">
+            <i class="fa-solid fa-building"></i>
+            <p>Building Register</p>
+        </legend>
+        <form [formGroup]="buildingRegister" (ngSubmit)="register()">
+            <div class="flex flex-col space-y-5 items-stretch">
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                    <div class="mb-3 xl:w-1/2">
+                        <select class="form-select appearance-none
+                          block
+                          w-full
+                          px-3
+                          py-4
+                          text-base
+                          font-normal
+                          text-gray-700
+                          bg-white bg-clip-padding bg-no-repeat
+                          border border-solid border-gray-300
+                          rounded
+                          transition
+                          ease-in-out
+                          m-0
+                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            aria-label="Default select example">
+                            <option selected>Select Owner</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-3 xl:w-full">
+                        <textarea class="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                          " id="exampleFormControlTextarea1" rows="5" placeholder="Your message"></textarea>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-3 border rounded-md p-3">
+                    <div class="flex items-center justify-start space-x-5 w-full">
+                        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg max-w-1/2 min-w-max" role="group">
+                            <div>
+                                <button type="button"
+                                    class="rounded-l px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out flex flex-row space-x-2"
+                                    (click)="getCurrentLocation()">
+                                    <i class="fa-solid fa-location-crosshairs"></i>
+                                    <p>Get current location</p>
+                                </button>
+                            </div>
+                            <button type="button"
+                                class=" rounded-r px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out flex flex-row space-x-2"
+                                (click)="addLocation()">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p>Add location</p>
+                            </button>
+                        </div>
+                        <div class="flex flex-row space-x-3 max-w-1/2" *ngIf="isDisplayLatLong">
+                            <input type="text" class="
+                                form-control
+                                block
+                                w-1/2
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                            " placeholder="Latitute" formGroupName="latitude" />
+                            <input type="text" class="
+                                form-control
+                                block
+                                w-1/2
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                            " placeholder="Longitude" formGroupName="longitude" />
+                        </div>
+                    </div>
+                    <div class=" w-full" *ngIf="isDisplayLatLong">
+                        <input type="text" class="
+                                form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                            " placeholder="location URL" formGroupName="location" />
+                    </div>
+                    <div *ngIf="isDisplayMap">
+                        <div id="map" class="h-48 rounded-md block shadow-md border"></div>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="email" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Landlord code" formControlName="code">
+                        <label for="code" class="text-gray-700">Landlord code</label>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-centerw w-full">
+                    <div class="mb-3 xl:w-full">
+                        <textarea
+                          class="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                          "
+                          id="exampleFormControlTextarea1"
+                          rows="5"
+                          placeholder="Your message"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end space-x-3">
+                    <div
+                        class="bg-blue-900 border text-white py-1.5 px-12 rounded-md flex flex-row space-x-3 items-center hover:cursor-pointer hover:border-blue-900 hover:border hover:text-blue-900 hover:bg-transparent">
+                        <button type="submit">Register</button>
+                    </div>
+                    <div
+                        class="hover:bg-red-700 hover:text-white hover:border hover:bg-transparent hover:border-red-700 border  border-red-700 text-red-700 py-1.5 px-12 rounded-md flex flex-row space-x-3  items-center hover:cursor-pointer">
+                        <button type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

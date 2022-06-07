@@ -1,0 +1,397 @@
+<div>
+    <fieldset class="border border-blue-900 rounded-md p-8 min-w-max max-w-max w-1/2">
+        <legend class="border rounded-md text-white bg-blue-900 py-2 px-5 flex flex-row space-x-3 items-center">
+            <i class="fa-solid fa-house"></i>
+            <p>Property Register</p>
+        </legend>
+        <form [formGroup]="propertyRegister" (ngSubmit)="register()">
+            <div class="flex flex-row space-x-5 items-center  min-w-max max-w-max">
+                <div class="flex flex-col space-y-5 items-stretch min-w-max max-w-max">
+                    <div>
+                        <div class="flex justify-start flex-1 p-3 rounded-md border-2">
+                            <div class="form-check form-switch">
+                                <input
+                                    class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                    type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label inline-block text-gray-800 font-bold"
+                                    for="flexSwitchCheckChecked">ACTIVE</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row space-x-5 items-start">
+                        <div class="mb-3 flex-1">
+                            <select class="form-select appearance-none
+                              block
+                              w-full
+                              px-3
+                              py-4
+                              text-base
+                              font-normal
+                              text-gray-700
+                              bg-white bg-clip-padding bg-no-repeat
+                              border border-solid border-gray-300
+                              rounded
+                              transition
+                              ease-in-out
+                              m-0
+                              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                aria-label="Default select example">
+                                <option selected>Select building</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3 flex-1">
+                            <input type="text" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Property Code" formControlName="code">
+                            <label for="code" class="text-gray-700">Property code</label>
+                        </div>
+                        <div class="form-floating mb-3 flex1">
+                            <input type="text" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Slug" formControlName="slug">
+                            <label for="code" class="text-gray-700">Slug</label>
+                        </div>
+                        <div class="flex items-center justify-center flex-1">
+                            <div class="datepicker relative form-floating mb-3" data-mdb-toggle-button="false">
+                                <input type="text"
+                                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    placeholder="Select a date" formControlName="avaiableDate" />
+                                <label for="floatingInput" class="text-gray-700">Available date</label>
+                                <button class="datepicker-toggle-button" data-mdb-toggle="datepicker">
+                                    <i class="fas fa-calendar datepicker-toggle-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div class="mb-3 xl:w-full">
+                        <textarea class="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                          " id="exampleFormControlTextarea1" rows="5" placeholder="Description"
+                            formControlName="description"></textarea>
+                    </div>
+                    <div class="flex flex-row space-x-5 items-start min-w-max max-w-max">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Price" formControlName="price">
+                            <label for="code" class="text-gray-700">Price</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Floor" formControlName="floor">
+                            <label for="code" class="text-gray-700">Floor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Size" formControlName="size">
+                            <label for="code" class="text-gray-700">Size</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Max Guest" formControlName="maxGuest">
+                            <label for="code" class="text-gray-700">Max guest</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-row space-x-5 items-start min-w-max max-w-max">
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Number of Bedroom" formControlName="numBedRoom">
+                            <label for="code" class="text-gray-700">Number of bedroom</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Number of Bathroom" formControlName="numBathRoom">
+                            <label for="code" class="text-gray-700">Number of bathroom</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Number of Kitchen" formControlName="numKitchen">
+                            <label for="code" class="text-gray-700">Number of kitchen</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control
+                                block
+                                w-full
+                                px-3
+                                py-1.5
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Number of Bed" formControlName="numBed">
+                            <label for="code" class="text-gray-700">Number of bed</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-5">
+                        <div class="flex flex-row items-center justify-between">
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">WiFi</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">CCTV</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">TV</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">Balcony</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between">
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">AC</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">Fan</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">Fridge</label>
+                                </div>
+                            </div>
+                            <div class="flex justify-start flex-1">
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
+                                        type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked>
+                                    <label class="form-check-label inline-block text-gray-800"
+                                        for="flexSwitchCheckChecked">Washing Machine</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row space-x-5 items-center">
+                        <div class="flex justify-start">
+                            <div class="mb-3 w-96">
+                                <input class="form-control
+                              block
+                              w-full
+                              px-3
+                              py-1.5
+                              text-base
+                              font-normal
+                              text-gray-700
+                              bg-white bg-clip-padding
+                              border border-solid border-gray-300
+                              rounded
+                              transition
+                              ease-in-out
+                              m-0
+                              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file"
+                                    id="formFileMultiple" multiple>
+                            </div>
+                        </div>
+
+                        <!-- Custom scripts -->
+                        <script type="text/javascript">
+                            const checkbox = document.getElementById("flexCheckIndeterminate");
+                            checkbox.indeterminate = true;
+                        </script>
+                    </div>
+                    <div class="flex flex-row justify-end space-x-3 items-center">
+                        <div
+                            class="bg-blue-900 border border-b-blue-900 text-white py-1.5 px-12 rounded-md flex flex-row space-x-3 items-center hover:cursor-pointer hover:border-blue-900 hover:border hover:text-blue-900 hover:bg-transparent">
+                            <button type="submit">Register</button>
+                        </div>
+                        <div
+                            class="hover:bg-red-700 hover:text-white hover:border hover:bg-transparent hover:border-red-700 border  border-red-700 text-red-700 py-1.5 px-12 rounded-md flex flex-row space-x-3  items-center hover:cursor-pointer">
+                            <button type="reset">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

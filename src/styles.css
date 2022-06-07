@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+    background-color: #1e3a8a;
+    color: white;
+}
+
+.active-sub-menu{
+    border: 2px solid;
+}
+
+.invalid{
+    border-left: 5px solid #F87171;
+}
+
+.button-disable{
+    background-color: darkgray;
+    color: white;
+}
+
+.button-disable:hover{
+    cursor: not-allowed;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
