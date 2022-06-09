@@ -19,17 +19,17 @@ export class BuildingFormComponent {
     owner: new FormControl(''),
     code: new FormControl(''),
     buildingName: new FormControl(''),
-    slung: new FormControl(''),
+    slug: new FormControl(''),
     description: new FormControl(''),
     latitude: new FormControl(''),
     longitude: new FormControl(''),
     location: new FormControl(''),
-    waterFee: new FormControl(''),
-    electricityFee: new FormControl(''),
-    parkingFee: new FormControl(''),
+    waterPrice: new FormControl(''),
+    electricityPrice: new FormControl(''),
+    parkingPrice: new FormControl(''),
     curfew: new FormControl(''),
     bookingFee : new FormControl(''),
-    contractAndTerm: new FormControl('')
+    contractAndTerms: new FormControl('')
   })
 
   getCurrentLocation(): void{
@@ -55,6 +55,8 @@ export class BuildingFormComponent {
       ).addTo(mapGetLocation);
       var marker = L.marker([coords.latitude, coords.longitude]).addTo(mapGetLocation);
       console.log(`lat: ${coords.latitude} long: ${coords.longitude}`);
+      this.buildingRegister.value['latitude'] = coords.latitude.toString();
+      this.buildingRegister.value['longitude'] = coords.longitude.toString();
       });
     }
     console.log('OK')
@@ -66,7 +68,7 @@ export class BuildingFormComponent {
   }
 
   register(){
-
+    console.log(this.buildingRegister.value)
   }
 
 }

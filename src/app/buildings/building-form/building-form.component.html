@@ -8,7 +8,7 @@
             <div class="flex flex-col space-y-5 items-stretch">
                 <div class="flex flex-row space-x-5 min-w-max items-center">
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -42,7 +42,7 @@
                           ease-in-out
                           m-0
                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            aria-label="Default select example">
+                            aria-label="Default select example" formControlName="owner">
                             <option selected>Select Owner</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="flex flex-row space-x-5 min-w-max items-center">
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -70,11 +70,11 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
+                            placeholder="Building name" formControlName="buildingName">
+                        <label for="buildingName" class="text-gray-700">Building name</label>
                     </div>
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -89,8 +89,8 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
+                            placeholder="Slug" formControlName="slug">
+                        <label for="slug" class="text-gray-700">Slug</label>
                     </div>
                 </div>
                 <div>
@@ -111,12 +111,14 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                          " id="exampleFormControlTextarea1" rows="5" placeholder="Your message"></textarea>
+                          " id="exampleFormControlTextarea1" rows="5" placeholder="Description"
+                            formControlName="description"></textarea>
                     </div>
                 </div>
                 <div class="flex flex-col space-y-3 border rounded-md p-3">
                     <div class="flex items-center justify-start space-x-5 w-full">
-                        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg max-w-1/2 min-w-max" role="group">
+                        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg max-w-1/2 min-w-max"
+                            role="group">
                             <div>
                                 <button type="button"
                                     class="rounded-l px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out flex flex-row space-x-2"
@@ -149,7 +151,7 @@
                                 ease-in-out
                                 m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                            " placeholder="Latitute" formGroupName="latitude" />
+                            " placeholder="Latitute" formControlName="latitude" />
                             <input type="text" class="
                                 form-control
                                 block
@@ -166,7 +168,7 @@
                                 ease-in-out
                                 m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                            " placeholder="Longitude" formGroupName="longitude" />
+                            " placeholder="Longitude" formControlName="longitude" />
                         </div>
                     </div>
                     <div class=" w-full" *ngIf="isDisplayLatLong">
@@ -186,7 +188,7 @@
                                 ease-in-out
                                 m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                            " placeholder="location URL" formGroupName="location" />
+                            " placeholder="location URL" formControlName="location" />
                     </div>
                     <div *ngIf="isDisplayMap">
                         <div id="map" class="h-48 rounded-md block shadow-md border"></div>
@@ -194,7 +196,7 @@
                 </div>
                 <div class="flex flex-row space-x-5 min-w-max items-center">
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -209,11 +211,11 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
+                            placeholder="Water price" formControlName="waterPrice">
+                        <label for="waterPrice" class="text-gray-700">Water Price</label>
                     </div>
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -228,53 +230,13 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
-                    </div>
-                </div>
-                <div class="flex flex-row space-x-5 min-w-max items-center">
-                    <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
-                            block
-                            w-full
-                            px-3
-                            py-1.5
-                            text-base
-                            font-normal
-                            text-gray-700
-                            bg-white bg-clip-padding
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
-                    </div>
-                    <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
-                            block
-                            w-full
-                            px-3
-                            py-1.5
-                            text-base
-                            font-normal
-                            text-gray-700
-                            bg-white bg-clip-padding
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
+                            placeholder="Electricity Price" formControlName="electricityPrice">
+                        <label for="electricityPrice" class="text-gray-700">Electricity price</label>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-5 min-w-max items-center">
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="email" class="form-control
+                        <input type="text" class="form-control
                             block
                             w-full
                             px-3
@@ -289,14 +251,53 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
-                        <label for="code" class="text-gray-700">Landlord code</label>
+                            placeholder="Parking price" formControlName="parkingPrice">
+                        <label for="parkingPrice" class="text-gray-700">Parking price</label>
+                    </div>
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="text" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Booking fee" formControlName="bookingFee">
+                        <label for="bookingFee" class="text-gray-700">Booking fee</label>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-5 min-w-max items-center">
+                    <div class="form-floating mb-3 xl:w-1/2">
+                        <input type="text" class="form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Curfew" formControlName="curfew">
+                        <label for="curfew" class="text-gray-700">Curfew</label>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-5 min-w-max items-centerw w-full">
                     <div class="mb-3 xl:w-full">
-                        <textarea
-                          class="
+                        <textarea class="
                             form-control
                             block
                             w-full
@@ -312,11 +313,8 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                          "
-                          id="exampleFormControlTextarea1"
-                          rows="5"
-                          placeholder="Your message"
-                        ></textarea>
+                          " id="exampleFormControlTextarea1" rows="5" placeholder="Contract & Terms"
+                            formControlName="contractAndTerms"></textarea>
                     </div>
                 </div>
                 <div class="flex flex-row justify-end space-x-3">
