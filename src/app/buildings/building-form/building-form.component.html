@@ -23,7 +23,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Landlord code" formControlName="code">
+                            placeholder="Landlord code" formControlName="code" [class.invalid]="code?.invalid && code?.touched">
                         <label for="code" class="text-gray-700">Landlord code</label>
                     </div>
                     <div class="mb-3 xl:w-1/2">
@@ -42,7 +42,7 @@
                           ease-in-out
                           m-0
                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            aria-label="Default select example" formControlName="owner">
+                            aria-label="Default select example" formControlName="owner" [class.invalid]="owner?.invalid && owner?.touched">
                             <option selected>Select Owner</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -70,11 +70,12 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Building name" formControlName="buildingName">
+                            placeholder="Building name" formControlName="buildingName" [class.invalid]="buildingName?.invalid && buildingName?.touched">
                         <label for="buildingName" class="text-gray-700">Building name</label>
                     </div>
                     <div class="form-floating mb-3 xl:w-1/2">
-                        <input type="text" class="form-control
+                        <input type="text" class="
+                            form-control
                             block
                             w-full
                             px-3
@@ -82,14 +83,14 @@
                             text-base
                             font-normal
                             text-gray-700
-                            bg-white bg-clip-padding
+                            bg-gray-100 bg-clip-padding
                             border border-solid border-gray-300
                             rounded
                             transition
                             ease-in-out
                             m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Slug" formControlName="slug">
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                            "placeholder="Slug" disabled>
                         <label for="slug" class="text-gray-700">Slug</label>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                           " id="exampleFormControlTextarea1" rows="5" placeholder="Description"
-                            formControlName="description"></textarea>
+                            formControlName="description" [class.invalid]="description?.invalid && description?.touched"></textarea>
                     </div>
                 </div>
                 <div class="flex flex-col space-y-3 border rounded-md p-3">
@@ -211,7 +212,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Water price" formControlName="waterPrice">
+                            placeholder="Water price" formControlName="waterPrice" [class.invalid]="waterPrice?.invalid && waterPrice?.touched">
                         <label for="waterPrice" class="text-gray-700">Water Price</label>
                     </div>
                     <div class="form-floating mb-3 xl:w-1/2">
@@ -230,7 +231,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Electricity Price" formControlName="electricityPrice">
+                            placeholder="Electricity Price" formControlName="electricityPrice" [class.invalid]="electricityPrice?.invalid && electricityPrice?.touched">
                         <label for="electricityPrice" class="text-gray-700">Electricity price</label>
                     </div>
                 </div>
@@ -251,7 +252,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Parking price" formControlName="parkingPrice">
+                            placeholder="Parking price" formControlName="parkingPrice" [class.invalid]="parkingPrice?.invalid && parkingPrice?.touched">
                         <label for="parkingPrice" class="text-gray-700">Parking price</label>
                     </div>
                     <div class="form-floating mb-3 xl:w-1/2">
@@ -270,7 +271,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Booking fee" formControlName="bookingFee">
+                            placeholder="Booking fee" formControlName="bookingFee" [class.invalid]="bookingFee?.invalid && bookingFee?.touched">
                         <label for="bookingFee" class="text-gray-700">Booking fee</label>
                     </div>
                 </div>
@@ -291,7 +292,7 @@
                             ease-in-out
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Curfew" formControlName="curfew">
+                            placeholder="Curfew" formControlName="curfew" [class.invalid] = "curfew?.invalid && curfew?.touched">
                         <label for="curfew" class="text-gray-700">Curfew</label>
                     </div>
                 </div>
@@ -314,7 +315,7 @@
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                           " id="exampleFormControlTextarea1" rows="5" placeholder="Contract & Terms"
-                            formControlName="contractAndTerms"></textarea>
+                            formControlName="contractAndTerms" [class.invalid]="contractAndTerms?.invalid && contractAndTerms?.touched"></textarea>
                     </div>
                 </div>
                 <div class="flex flex-row justify-end space-x-3">

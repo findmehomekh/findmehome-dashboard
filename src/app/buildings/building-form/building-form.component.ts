@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 declare const L:any;
 
@@ -16,21 +16,61 @@ export class BuildingFormComponent {
   constructor() { }
 
   buildingRegister = new FormGroup({
-    owner: new FormControl(''),
-    code: new FormControl(''),
-    buildingName: new FormControl(''),
-    slug: new FormControl(''),
-    description: new FormControl(''),
+    owner: new FormControl('', [Validators.required]),
+    code: new FormControl('', [Validators.required]),
+    buildingName: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
     latitude: new FormControl(''),
     longitude: new FormControl(''),
     location: new FormControl(''),
-    waterPrice: new FormControl(''),
-    electricityPrice: new FormControl(''),
-    parkingPrice: new FormControl(''),
-    curfew: new FormControl(''),
-    bookingFee : new FormControl(''),
-    contractAndTerms: new FormControl('')
+    waterPrice: new FormControl('', [Validators.required]),
+    electricityPrice: new FormControl('', [Validators.required]),
+    parkingPrice: new FormControl('', [Validators.required]),
+    curfew: new FormControl('', [Validators.required]),
+    bookingFee : new FormControl('', [Validators.required]),
+    contractAndTerms: new FormControl('', [Validators.required])
   })
+
+  public get owner(){
+    return this.buildingRegister.get('owner');
+  }
+
+  public get code(){
+    return this.buildingRegister.get('code');
+  }
+
+  public get buildingName(){
+    return this.buildingRegister.get('buildingName');
+  }
+
+  public get description(){
+    return this.buildingRegister.get('description');
+  }
+
+  public get waterPrice(){
+    return this.buildingRegister.get('waterPrice');
+  }
+
+  public get electricityPrice(){
+    return this.buildingRegister.get('electricityPrice');
+  }
+
+  public get parkingPrice(){
+    return this.buildingRegister.get('parkingPrice');
+  }
+
+  public get curfew(){
+    return this.buildingRegister.get('curfew');
+  }
+
+  public get bookingFee(){
+    return this.buildingRegister.get('bookingFee');
+  }
+
+  public get contractAndTerms(){
+    return this.buildingRegister.get('contractAndTerms');
+  }
+
 
   getCurrentLocation(): void{
     this.isDisplayMap = true

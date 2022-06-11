@@ -6,7 +6,7 @@ export class Building{
     name: string | undefined;
     slug: string | undefined;
     description: string | undefined;
-    locationg: string | undefined;
+    location: string | undefined;
     latitude: number | undefined;
     longitude: number | undefined;
     waterPrice: number | undefined;
@@ -14,5 +14,5 @@ export class Building{
     parkingPrice: number | undefined;
     bookingFee: number | undefined;
     contractAndTerms: string | undefined;
-    curfew: Time | undefined;
+    curfew: string | undefined;
 }
