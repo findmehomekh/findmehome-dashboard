@@ -10,15 +10,18 @@ import { PropertyFormComponent } from './properties/property-form/property-form.
 import { BuildingsComponent } from './buildings/buildings.component';
 import { BuildingListComponent } from './buildings/building-list/building-list.component';
 import { BuildingFormComponent } from './buildings/building-form/building-form.component';
+import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/landlord-update-form.component';
 
 const routes: Routes = [
   {path: 'landlords', component: LandlordsComponent, children: [
-    {path: 'landlord-list', component: LandlordListComponent},
-    {path: 'landlord-form', component: LandlordFormComponent}
+    {path: 'landlord-list', component: LandlordListComponent, children: [
+      {path: 'landlord-update-form', component: LandlordUpdateFormComponent}
+    ]},
+    {path: 'landlord-form', component: LandlordFormComponent},
   ]},
   {path: 'properties', component: PropertiesComponent, children: [
     {path: 'property-list', component: PropertyListComponent},
-    {path: 'property-form', component: PropertyFormComponent}
+    {path: 'property-form', component: PropertyFormComponent},
   ]},
   {path: 'buildings', component: BuildingsComponent, children:[
     {path: 'building-list', component: BuildingListComponent},

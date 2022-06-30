@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Component({
@@ -10,6 +10,9 @@ export class LandlordListComponent implements OnInit {
 
   constructor() { }
 
+  currentLandlord: any
+
+  @Output() notify: EventEmitter<any> = new EventEmitter<any>();
   ngOnInit(): void {
   }
 
@@ -43,5 +46,10 @@ export class LandlordListComponent implements OnInit {
       phoneNumber: '092529987'
     }
   ]
+  getCurrentLandlord(landlord: any){
+    this.currentLandlord = landlord;
+  }
+
+ 
 
 }

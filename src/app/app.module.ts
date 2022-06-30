@@ -20,6 +20,7 @@ import { LandlordService } from './services/landlord.service';
 import { PropertyService } from './services/property.service';
 import { TotalRegisterChartComponent } from './landlords/total-register-chart/total-register-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/landlord-update-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BuildingsComponent,
     BuildingListComponent,
     TotalRegisterChartComponent,
+    LandlordUpdateFormComponent,
   ],
   imports: [
     BrowserModule,
