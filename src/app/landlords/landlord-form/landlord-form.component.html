@@ -41,104 +41,9 @@
                         transition
                         ease-in-out
                         m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="firstname"
-                        placeholder="First name" formControlName="firstname">
-                    <label for="firstname" class="text-gray-700">Firstname</label>
-                </div>
-                <div class="form-floating mb-3 xl:w-96">
-                    <input type="text" class="form-control
-                        block
-                        w-full
-                        px-3
-                        py-1.5
-                        text-base
-                        font-normal
-                        text-gray-700
-                        bg-white bg-clip-padding
-                        border border-solid border-gray-300
-                        rounded
-                        transition
-                        ease-in-out
-                        m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="lastname"
-                        placeholder="Last name" formControlName="lastname">
-                    <label for="lastname" class="text-gray-700">Lastname</label>
-                </div>
-                <div class="form-floating mb-3 xl:w-96">
-                    <input type="text" class="form-control
-                        block
-                        w-full
-                        px-3
-                        py-1.5
-                        text-base
-                        font-normal
-                        text-gray-700
-                        bg-white bg-clip-padding
-                        border border-solid border-gray-300
-                        rounded
-                        transition
-                        ease-in-out
-                        m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="username"
                         placeholder="Username" formControlName="username" [class.invalid]="username?.invalid && username?.touched">
                     <label for="username" class="text-gray-700">Username</label>
-                </div>
-                <div class="form-floating mb-3 xl:w-96">
-                    <input type="email" class="form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="email"
-                        placeholder="name@example.com" formControlName="email">
-                    <label for="email" class="text-gray-700">Email address</label>
-                </div>
-                <div class="form-floating mb-3 xl:w-96">
-                    <input type="password" class="form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="password"
-                        placeholder="Password" formControlName="password" [class.invalid]="password?.invalid && password?.touched">
-                    <label for="password" class="text-gray-700">Password</label>
-                </div>
-                <div class="form-floating mb-3 xl:w-96">
-                    <input type="password" class="form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="confirmPassword"
-                        placeholder="Confirm password" formControlName="confirmPassword" [class.invalid]="confirmPassword?.invalid && confirmPassword?.touched">
-                    <label for="confirmPassword" class="text-gray-700">Confirm password</label>
                 </div>
                 <div class="form-floating mb-3 xl:w-96">
                     <input type="email" class="form-control
@@ -164,7 +69,7 @@
                 </div>
                 <hr class="border-gray-300">
                 <div class=" border border-red-600 rounded-md text-red-600 px-5 py-2 text-center shadow-lg hover:cursor-pointer hover:bg-red-600 hover:text-white">
-                    <button type="submit">Clear</button>
+                    <button type="reset">Clear</button>
                 </div>
             </div>
         </form>

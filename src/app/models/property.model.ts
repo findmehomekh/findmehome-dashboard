@@ -1,6 +1,7 @@
 import { Building } from './building.model';
 export class Property{
     buildingCode: string | undefined;
+    availableDate: string | undefined;
     code: string | undefined;
     name: string | undefined;
     slug: string | undefined;

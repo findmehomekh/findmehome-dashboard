@@ -12,17 +12,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b" *ngFor="let landlord of landlordList">
+                        <tr class="bg-white border-b" *ngFor="let landlord of allLandlords">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{landlord.code}}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.firstname}}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.lastname}}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber}}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber}}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber}}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.username}}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber[0]}}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber[0]}}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{landlord.phoneNumber[0]}}</td>
                             <td class="px-3">
                                 <div class="flex flex-row space-x-4 text-sm text-gray-900 font-light">
                                     <div class="flex flex-row space-x-2 border border-green-900 rounded-md py-1 px-2 text-white bg-green-900 hover:bg-transparent hover:border hover:border-green-900 hover:text-green-900 hover:cursor-pointer active:shadow-lg transition duration-150 ease-in-out"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" (click)="getCurrentLandlord(landlord)">
+                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" (click)="getCurrentLandlordID(landlord)">
                                         <div>
                                             <i class="fa-solid fa-pencil"></i>
                                         </div>
@@ -31,7 +30,8 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="flex flex-row space-x-2 border border-red-900 rounded-md py-1 px-2 text-white bg-red-900 hover:bg-transparent hover:border hover:border-red-900 hover:text-red-900 hover:cursor-pointer" routerLink="landlord-update-form">
+                                        class="flex flex-row space-x-2 border border-red-900 rounded-md py-1 px-2 text-red-900 hover:bg-transparent hover:border hover:border-red-900 hover:text-white hover:bg-red-900 hover:cursor-pointer" routerLink="landlord-update-form"
+                                        (click)="deleteLandlordClicked(landlord.id)">
                                         <div>
                                             <i class="fa-solid fa-trash"></i>
                                         </div>

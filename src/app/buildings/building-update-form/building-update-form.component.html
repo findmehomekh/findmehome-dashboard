@@ -4,7 +4,7 @@
             <i class="fa-solid fa-building"></i>
             <p>Building Register</p>
         </legend>
-        <form [formGroup]="buildingRegister" (ngSubmit)="register()">
+        <form [formGroup]="buildingRegister" (ngSubmit)="updateBuilding()">
             <div class="flex flex-col space-y-5 items-stretch">
                 <div class="flex flex-row space-x-5 min-w-max items-center">
                     <div class="form-floating mb-3 xl:w-1/2">
@@ -319,11 +319,7 @@
                 <div class="flex flex-row justify-end space-x-3">
                     <div
                         class="bg-blue-900 border text-white py-1.5 px-12 rounded-md flex flex-row space-x-3 items-center hover:cursor-pointer hover:border-blue-900 hover:border hover:text-blue-900 hover:bg-transparent">
-                        <button type="submit">Register</button>
-                    </div>
-                    <div
-                        class="hover:bg-red-700 hover:text-white hover:border hover:bg-transparent hover:border-red-700 border  border-red-700 text-red-700 py-1.5 px-12 rounded-md flex flex-row space-x-3  items-center hover:cursor-pointer">
-                        <button type="reset">Reset</button>
+                        <button type="submit">Save Change</button>
                     </div>
                 </div>
             </div>

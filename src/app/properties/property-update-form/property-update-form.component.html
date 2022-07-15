@@ -1,10 +1,10 @@
 <div>
-    <fieldset class="border border-blue-900 rounded-md p-8 min-w-max max-w-max w-1/2">
+    <fieldset class="border border-blue-900 rounded-md p-8 min-w-max w-1/2">
         <legend class="border rounded-md text-white bg-blue-900 py-2 px-5 flex flex-row space-x-3 items-center">
             <i class="fa-solid fa-house"></i>
             <p>Property Register</p>
         </legend>
-        <form [formGroup]="propertyRegister" (ngSubmit)="register()">
+        <form [formGroup]="propertyRegister" (ngSubmit)="update()">
             <div class="flex flex-row space-x-5 items-center  min-w-max max-w-max">
                 <div class="flex flex-col space-y-5 items-stretch min-w-max max-w-max">
                     <div>
@@ -12,7 +12,7 @@
                             <div class="form-check form-switch">
                                 <input
                                     class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
-                                    type="checkbox" role="switch" id="flexSwitchCheckChecked" checked (change)="onChangeCheck(isActive,$event)">
+                                    type="checkbox" role="switch" id="flexSwitchCheckChecked" checked (change)="onChangeCheck(isActive, $event)">
                                 <label class="form-check-label inline-block text-gray-800 font-bold"
                                     for="flexSwitchCheckChecked">ACTIVE</label>
                             </div>
@@ -265,7 +265,7 @@
                                 ease-in-out
                                 m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                placeholder="Number of Bed" formControlName="numBed">
+                                placeholder="Number of Bed" formControlName="numBed" >
                             <label for="code" class="text-gray-700">Number of bed</label>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                               ease-in-out
                               m-0
                               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file"
-                                    id="formFileMultiple" multiple (change)="onSeletedFile($event)">
+                                    id="formFileMultiple" multiple>
                             </div>
                         </div>
 
@@ -378,11 +378,7 @@
                     <div class="flex flex-row justify-end space-x-3 items-center">
                         <div
                             class="bg-blue-900 border border-b-blue-900 text-white py-1.5 px-12 rounded-md flex flex-row space-x-3 items-center hover:cursor-pointer hover:border-blue-900 hover:border hover:text-blue-900 hover:bg-transparent">
-                            <button type="submit">Register</button>
-                        </div>
-                        <div
-                            class="hover:bg-red-700 hover:text-white hover:border hover:bg-transparent hover:border-red-700 border  border-red-700 text-red-700 py-1.5 px-12 rounded-md flex flex-row space-x-3  items-center hover:cursor-pointer">
-                            <button type="reset">Reset</button>
+                            <button type="submit">Save changes</button>
                         </div>
                     </div>
                 </div>

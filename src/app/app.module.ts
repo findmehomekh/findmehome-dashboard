@@ -21,7 +21,17 @@ import { PropertyService } from './services/property.service';
 import { TotalRegisterChartComponent } from './landlords/total-register-chart/total-register-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/landlord-update-form.component';
-
+import { UserComponent } from './user/user.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guard/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { BuildingUpdateFormComponent } from './buildings/building-update-form/building-update-form.component';
+import { PropertyUpdateFormComponent } from './properties/property-update-form/property-update-form.component';
+import { UploadImageService } from './services/upload-image.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +49,11 @@ import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/la
     BuildingListComponent,
     TotalRegisterChartComponent,
     LandlordUpdateFormComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
+    BuildingUpdateFormComponent,
+    PropertyUpdateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +61,21 @@ import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/la
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [
     BuildingService,
     LandlordService,
-    PropertyService
+    PropertyService,
+    UserService,
+    AuthService,
+    AuthGuard,
+    UploadImageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

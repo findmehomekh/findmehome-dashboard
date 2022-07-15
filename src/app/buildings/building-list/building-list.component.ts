@@ -2,6 +2,8 @@ import { NodeWithI18n } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Building } from '../../models/building.model';
 import { Time } from '@angular/common';
+import { BuildingService } from '../../services/building.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-building-list',
@@ -10,12 +12,16 @@ import { Time } from '@angular/common';
 })
 export class BuildingListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private buildingService: BuildingService, private router: Router) { }
+
+  currentBuilding: any;
 
   ngOnInit(): void {
+    this.getAllBuilding();
   }
 
   now = new Date().toLocaleTimeString();
+  allBuildings: any;
 
   tableHeader: any[] = [
     'Building code', 
@@ -32,39 +38,30 @@ export class BuildingListComponent implements OnInit {
     'Action',
   ]
 
-  buildingList: Building[] = [
-    {
-      owner: 'LLYCD001',
-      code: 'B001',
-      name: '001',
-      slug: '001',
-      description: 'N/A',
-      location: 'N/A',
-      latitude: 0,
-      longitude: 0,
-      waterPrice: 1000,
-      electricityPrice: 1000,
-      parkingPrice: 0,
-      bookingFee: 0,
-      contractAndTerms: 'N/A',
-      curfew: this.now
-    },
-    {
-      owner: 'LLYCD002',
-      code: 'B002',
-      name: '001',
-      slug: '001',
-      description: 'N/A',
-      location: 'N/A',
-      latitude: 0,
-      longitude: 0,
-      waterPrice: 1000,
-      electricityPrice: 1000,
-      parkingPrice: 0,
-      bookingFee: 0,
-      contractAndTerms: 'N/A',
-      curfew: this.now
-    }
-  ]
+  getAllBuilding(){
+    this.buildingService.getAllBuuilding().subscribe((res: any)=>{
+      this.allBuildings = res;
+      console.log(this.allBuildings)
+    })
+  }
+
+  deleteBuilding(id: string){
+    this.buildingService.deleteBuilding(id).subscribe((res: any)=>{
+      console.log(res);
+      this.resetPage();
+    })
+  }
+
+  resetPage(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigateByUrl('/buildings/building-list');
+  }
+
+  getCurrentBuilding(building: any){
+    this.currentBuilding = building
+  }
+
+
 
 }

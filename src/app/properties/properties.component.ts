@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PropertyService } from '../services/property.service';
 
 @Component({
   selector: 'app-properties',
@@ -11,5 +12,8 @@ export class PropertiesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  
 
 }

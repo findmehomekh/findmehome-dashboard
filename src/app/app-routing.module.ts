@@ -11,23 +11,27 @@ import { BuildingsComponent } from './buildings/buildings.component';
 import { BuildingListComponent } from './buildings/building-list/building-list.component';
 import { BuildingFormComponent } from './buildings/building-form/building-form.component';
 import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/landlord-update-form.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
+  {path: 'sign-in', component: SignInComponent},
   {path: 'landlords', component: LandlordsComponent, children: [
-    {path: 'landlord-list', component: LandlordListComponent, children: [
-      {path: 'landlord-update-form', component: LandlordUpdateFormComponent}
+    {path: 'landlord-list', component: LandlordListComponent, canActivate: [AuthGuard], children: [
+      {path: 'landlord-update-form', component: LandlordUpdateFormComponent, canActivate: [AuthGuard]}
     ]},
     {path: 'landlord-form', component: LandlordFormComponent},
-  ]},
+  ], canActivate: [AuthGuard]},
   {path: 'properties', component: PropertiesComponent, children: [
-    {path: 'property-list', component: PropertyListComponent},
-    {path: 'property-form', component: PropertyFormComponent},
-  ]},
+    {path: 'property-list', component: PropertyListComponent, canActivate: [AuthGuard]},
+    {path: 'property-form', component: PropertyFormComponent, canActivate: [AuthGuard]},
+  ], canActivate: [AuthGuard]},
   {path: 'buildings', component: BuildingsComponent, children:[
-    {path: 'building-list', component: BuildingListComponent},
-    {path: 'building-form', component: BuildingFormComponent}
-  ]},
-  {path: 'bookings', component: BookingsComponent},
+    {path: 'building-list', component: BuildingListComponent, canActivate: [AuthGuard]},
+    {path: 'building-form', component: BuildingFormComponent, canActivate: [AuthGuard]}
+  ], canActivate: [AuthGuard]},
+  {path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

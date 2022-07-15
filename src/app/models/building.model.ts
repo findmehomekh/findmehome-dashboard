@@ -1,7 +1,8 @@
 import { Time } from "@angular/common";
 
 export class Building{
-    owner: string | undefined;
+    id: string | undefined
+    landlord: string | undefined;
     code: string | undefined;
     name: string | undefined;
     slug: string | undefined;

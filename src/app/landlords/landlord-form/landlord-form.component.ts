@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { LandlordService } from '../../services/landlord.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landlord-form',
@@ -7,7 +9,7 @@ import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./landlord-form.component.css',]
 })
 export class LandlordFormComponent implements OnInit {
-  constructor() { }
+  constructor(private landlordService: LandlordService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,18 +24,24 @@ export class LandlordFormComponent implements OnInit {
 
   landlordRegister = new FormGroup({
     code: new FormControl('', [Validators.required]),
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
     username: new FormControl('', [Validators.required]),
-    email: new FormControl(''),
-    password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required])
   });
 
   register(): void{
-    if(this.landlordRegister.value['password'] === this.landlordRegister.value['confirmPassword']){
-      console.log(this.landlordRegister.value);
+    if(this.landlordRegister.value['code']){
+      this.landlordService.addNewLandlord(
+        this.landlordRegister.value['code'],
+        this.landlordRegister.value['username'],
+        this.landlordRegister.value['phoneNumber']
+      ).subscribe((res)=>{
+        if(res){
+          console.log(res);
+          this.router.navigateByUrl('/landlords/landlord-list');
+        }else{
+          alert('Add New Landlord is Fail!')
+        }
+      })
     }else{
       alert('Password is not match, Please try again')
     }

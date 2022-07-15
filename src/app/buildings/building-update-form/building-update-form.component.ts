@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BuildingService } from '../../services/building.service';
 import { Router } from '@angular/router';
-import { LandlordService } from '../../services/landlord.service';
+import { BuildingService } from 'src/app/services/building.service';
+import { LandlordService } from 'src/app/services/landlord.service';
+import { Building } from '../../models/building.model';
 
 declare const L:any;
 
 @Component({
-  selector: 'app-building-form',
-  templateUrl: './building-form.component.html',
-  styleUrls: ['./building-form.component.css']
+  selector: 'app-building-update-form',
+  templateUrl: './building-update-form.component.html',
+  styleUrls: ['./building-update-form.component.css']
 })
-export class BuildingFormComponent implements OnInit{
+export class BuildingUpdateFormComponent implements OnInit {
+
+  @Input()
+  building!: any;
 
   isDisplayMap:boolean = false;
   isDisplayLatLong = false
@@ -118,26 +122,6 @@ export class BuildingFormComponent implements OnInit{
     this.isDisplayLatLong = true;
   }
 
-  register(){
-    
-    this.buildingService.addNewBuilding(
-      this.buildingRegister.value['waterPrice'],
-      this.buildingRegister.value['electricityPrice'],
-      this.buildingRegister.value['parkingPrice'],
-      this.buildingRegister.value['curfew'],
-      this.buildingRegister.value['description'],
-      this.buildingRegister.value['code'],
-      this.buildingRegister.value['location'],
-      this.buildingRegister.value['code'],
-      this.buildingRegister.value['owner'],
-      this.buildingRegister.value['bookingFee'],
-      this.buildingRegister.value['contractAndTerms']
-    ).subscribe((res)=>{
-      console.log(res);
-      this.resetPage();
-    })
-    // console.log(this.buildingRegister.value);
-  }
 
   getLandlordIds(){
     this.landlordService.getAllLandlords().subscribe((res: any)=>{
@@ -151,6 +135,34 @@ export class BuildingFormComponent implements OnInit{
     this.router.navigateByUrl('/buildings/building-list');
   }
 
+  updateBuilding(){
+    this.buildingRegister.value['waterPrice'] = this.buildingRegister.value['waterPrice'] == "" ? this.building?.waterPrice : this.buildingRegister.value['waterPrice'];
+    this.buildingRegister.value['electricityPrice'] = this.buildingRegister.value['electricityPrice'] == "" ? this.building?.electricityPrice : this.buildingRegister.value['electricityPrice'];
+    this.buildingRegister.value['parkingPrice'] = this.buildingRegister.value['parkingPrice'] == "" ? this.building?.parkingPrice : this.buildingRegister.value['parkingPrice'];
+    this.buildingRegister.value['curfew'] = this.buildingRegister.value['curfew'] == "" ? this.building?.curfew : this.buildingRegister.value['curfew'];
+    this.buildingRegister.value['description'] = this.buildingRegister.value['description'] == "" ? this.building?.description : this.buildingRegister.value['description'];
+    this.buildingRegister.value['code'] = this.buildingRegister.value['code'] == "" ? this.building?.code : this.buildingRegister.value['code'];
+    this.buildingRegister.value['location'] = this.buildingRegister.value['location'] == "" ? this.building?.location : this.buildingRegister.value['location'];
+    this.buildingRegister.value['landlord.id'] = this.buildingRegister.value['landlord.id'] == "" ? this.building?.landlord.id : this.buildingRegister.value['landlord.id'];
+    this.buildingRegister.value['bookingFee'] = this.buildingRegister.value['bookingFee'] == "" ? this.building?.bookingFee : this.buildingRegister.value['bookingFee'];
+    this.buildingRegister.value['contractAndTerms'] = this.buildingRegister.value['contractAndTerms'] == "" ? this.building?.contractAndTerms : this.buildingRegister.value['contractAndTerms'];
+    this.buildingService.updateBuilding(
+      this.building.id,
+      this.buildingRegister.value['waterPrice'],
+      this.buildingRegister.value['electricityPrice'],
+      this.buildingRegister.value['parkingPrice'],
+      this.buildingRegister.value['curfew'],
+      this.buildingRegister.value['description'],
+      this.buildingRegister.value['code'],
+      this.buildingRegister.value['location'],
+      this.buildingRegister.value['code'],
+      this.buildingRegister.value['landlord.id'],
+      this.buildingRegister.value['bookingFee'],
+      this.buildingRegister.value['contractAndTerms']
+    ).subscribe((res: any)=>{
+      console.log(res);
+    })
+  }
 
 
 }

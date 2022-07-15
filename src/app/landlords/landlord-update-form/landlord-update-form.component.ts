@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Landlord } from '../../models/landlord.model';
+import { LandlordService } from '../../services/landlord.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landlord-update-form',
@@ -9,9 +11,10 @@ import { Landlord } from '../../models/landlord.model';
 })
 export class LandlordUpdateFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private landlordService: LandlordService, private router: Router) { }
 
-  @Input() landlord: Landlord | undefined;
+  @Input()
+  landlord!: Landlord;
 
   ngOnInit(): void {
     
@@ -27,18 +30,24 @@ export class LandlordUpdateFormComponent implements OnInit {
 
   landlordRegister = new FormGroup({
     code: new FormControl('', [Validators.required]),
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
     username: new FormControl('', [Validators.required]),
-    email: new FormControl(''),
-    password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required])
   });
 
-  register(): void{
-    if(this.landlordRegister.value['password'] === this.landlordRegister.value['confirmPassword']){
-      console.log(this.landlordRegister.value);
+  updateLandlord(): void{
+    if(this.landlord.id){
+      this.landlordRegister.value['code'] = this.landlordRegister.value['code'] == "" ? this.landlord.code : this.landlordRegister.value['code'];
+      this.landlordRegister.value['username'] = this.landlordRegister.value['username'] == "" ? this.landlord.username : this.landlordRegister.value['username'];
+      this.landlordRegister.value['phoneNumber'] = this.landlordRegister.value['phoneNumber'] == "" ? this.landlord.phoneNumber : this.landlordRegister.value['phoneNumber'];
+      this.landlordService.updateLandlord(
+        this.landlord.id,
+        this.landlordRegister.value['code'],
+        this.landlordRegister.value['username'],
+        this.landlordRegister.value['phoneNumber']
+      ).subscribe((res)=>{
+        console.log(res);
+      })
+      this.router.navigateByUrl('/landlords/landlord-list');
     }else{
       alert('Password is not match, Please try again')
     }
@@ -63,6 +72,12 @@ export class LandlordUpdateFormComponent implements OnInit {
   
   public get phoneNumber(){
     return this.landlordRegister.get('phoneNumber');
+  }
+
+  resetPage(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigateByUrl('/landlords/landlord-list');
   }
   
 

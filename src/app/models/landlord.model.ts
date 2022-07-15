@@ -1,9 +1,6 @@
 export class Landlord{
+    id: string = '';
     code: string | undefined;
     username: string | undefined;
-    password: string | undefined;
-    email: string | undefined;
-    firstname: string | undefined;
-    lastname: string | undefined;
-    phoneNumber: string | undefined;
+    phoneNumber: string[] | undefined;
 }
