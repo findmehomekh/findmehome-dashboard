@@ -32,6 +32,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { BuildingUpdateFormComponent } from './buildings/building-update-form/building-update-form.component';
 import { PropertyUpdateFormComponent } from './properties/property-update-form/property-update-form.component';
 import { UploadImageService } from './services/upload-image.service';
+import { PropertyDetailsComponent } from './properties/property-details/property-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { UploadImageService } from './services/upload-image.service';
     SignUpComponent,
     BuildingUpdateFormComponent,
     PropertyUpdateFormComponent,
+    PropertyDetailsComponent,
   ],
   imports: [
     BrowserModule,

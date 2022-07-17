@@ -1,8 +1,8 @@
 <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="py-4 inline-block max-w-max sm:px-6 lg:px-8">
         <div class="overflow-hidden">
-          <table class="min-w-full text-center">
+          <table class="w-full text-center">
             <thead class="border-b bg-blue-800">
               <tr>
                 <th scope="col" class="text-sm font-medium text-white px-6 py-4" *ngFor="let header of tableHeader">
@@ -12,41 +12,44 @@
             </thead>
             <tbody>
               <tr class="bg-white border-b" *ngFor="let property of allProperties">
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{property.code}}
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
+                    {{property.code}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.building.code}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.price}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.floor}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.size}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.maxGuest}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.bedroom}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.kitchen}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-nowrap">
                     {{property.bathroom}}
                 </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{property.bed}}
+                <td class="text-sm text-gray-900 font-light px-3 py-4 whitespace-pre-line">
+                    <div class="flex flex-row space-x-2 items-center justify-center p-2 flex-wrap">
+                        <div *ngFor="let img of property.images" class="w-10">
+                            <img src="http://139.59.238.27:3000/images/{{img}}" alt="">
+                        </div>
+                    </div>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <div class="flex flex-row space-x-4 text-sm text-gray-900 font-light items-center">
                         <div class="flex flex-row space-x-2 border border-green-900 rounded-md py-1 px-2 text-white bg-green-900 hover:bg-transparent hover:border hover:border-green-900 hover:text-green-900 hover:cursor-pointer active:shadow-lg transition duration-150 ease-in-out" 
-                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" (click)="getCurrentProperty(property)"
-                            >
+                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" (click)="getCurrentProperty(property)">
                             <div>
                                 <i class="fa-solid fa-pencil"></i>
                             </div>
@@ -63,7 +66,7 @@
                                 <p>Delete</p>
                             </div>
                         </div>
-                         <div>
+                         <div class="hover: cursor-pointer">
                             <div class="italic font-bold">
                                 See details &rarr;
                             </div>
@@ -77,6 +80,9 @@
       </div>
     </div>
   </div>
+
+  <!-- <router-outlet></router-outlet> -->
+
 
   <div class="modal fade fixed top-0 left-0 hidden h-full w-full outline-none overflow-x-hidden overflow-y-auto"
     id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">

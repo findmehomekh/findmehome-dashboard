@@ -29,7 +29,7 @@ export class PropertyListComponent implements OnInit {
     'Num bedroom',
     'Num kitchen',
     'Num bathroom',
-    'Num bed',
+    'Image',
     'Action'
   ];
 

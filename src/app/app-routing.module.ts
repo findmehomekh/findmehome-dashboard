@@ -14,6 +14,7 @@ import { LandlordUpdateFormComponent } from './landlords/landlord-update-form/la
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './guard/auth.guard';
+import { PropertyDetailsComponent } from './properties/property-details/property-details.component';
 
 const routes: Routes = [
   {path: 'sign-in', component: SignInComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'properties', component: PropertiesComponent, children: [
     {path: 'property-list', component: PropertyListComponent, canActivate: [AuthGuard]},
     {path: 'property-form', component: PropertyFormComponent, canActivate: [AuthGuard]},
+    {path: 'property-detail', component: PropertyDetailsComponent}
   ], canActivate: [AuthGuard]},
   {path: 'buildings', component: BuildingsComponent, children:[
     {path: 'building-list', component: BuildingListComponent, canActivate: [AuthGuard]},

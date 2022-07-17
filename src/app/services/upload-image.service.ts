@@ -24,4 +24,13 @@ export class UploadImageService {
     }
     return this.http.post(url, fData, {headers: httpHeader});
   }
+
+  getImage(name: string){
+    const imgUrl = `http://139.59.238.27:3000/images/${name}`
+    const access_token = this.injector.get(AuthService).getToken();
+    const httpHeader = new HttpHeaders({
+      'Authorization': `${access_token}`
+    });
+    return this.http.get(imgUrl, {headers: httpHeader});
+  }
 }
